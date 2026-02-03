@@ -1,9 +1,9 @@
 
 import React, { Suspense } from 'react';
-import Division from './componet/Division';
-import Headers from './componet/Header';
-import ServiceAds from './componet/adsSection';
-import CoordinatorMessage from './componet/CoordinatorMessage';
+import Division from './component/Division';
+import Headers from './component/Header';
+import ServiceAds from './component/adsSection';
+import CoordinatorMessage from './component/CoordinatorMessage';
 
 const page = () => {
   return (

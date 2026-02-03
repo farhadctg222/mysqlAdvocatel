@@ -10,10 +10,11 @@ const getLawyer = async (id, slug) => {
 
     if (!res.ok) return null;
     return await res.json();
-  } catch (e) {
+  } catch {
     return null;
   }
 };
+
 
 /* ===================== ✅ SEO METADATA (API based) ===================== */
 export async function generateMetadata({ params }) {

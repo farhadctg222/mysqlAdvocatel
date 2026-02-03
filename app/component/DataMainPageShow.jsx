@@ -32,6 +32,7 @@ const DataMainPageShow = async () => {
   // const revised = [...services].reverse();
   // const data = revised.slice(0, 10);
   const data = [...(lawdata || [])].reverse().slice(0, 9);
+  console.log("Fetched data:", data);
 
 
     

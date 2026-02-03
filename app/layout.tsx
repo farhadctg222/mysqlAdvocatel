@@ -1,20 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavBar from './componet/NavBar';
-import Foter from './componet/Foter';
-import LegalLayout from './componet/LegalLayout';
-import FAQPage from './componet/FAQPage';
+import NavBar from './component/NavBar';
+import Foter from './component/Foter';
+import LegalLayout from './component/LegalLayout';
+import FAQPage from './component/FAQPage';
 export const dynamic = "force-dynamic";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Division Wise Lawyer & ITP in Bangladesh | Lawyer Bangladesh",

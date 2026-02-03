@@ -21,7 +21,7 @@ const CoordinatorMessage = () => {
         {/* Content */}
         <div className="flex-1">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-            মোহাম্মদ ফরহাদ 
+            মোহাম্মদ ফরহাদ উদ্দিন
           </h2>
           
           <p className="text-gray-600 mb-4">
