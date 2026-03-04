@@ -3,14 +3,14 @@ import connectDB from "@/connectdb"; // (চাইলে remove করতে প
 /* ✅ API থেকে এক জন lawyer data আনার helper */
 const getLawyer = async (id, slug) => {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/lawyer/${id}/${slug}`,
-      { next: { revalidate: 60 } }
+    const db = await connectDB();
+    const [rows] = await db.execute(
+      "SELECT * FROM `lawyers` WHERE `id` = ? AND `slug` = ? LIMIT 1",
+      [String(id), String(slug)]
     );
-
-    if (!res.ok) return null;
-    return await res.json();
-  } catch {
+    return rows?.[0] || null;
+  } catch (e) {
+    console.error("DB fetch failed:", e);
     return null;
   }
 };
