@@ -8,9 +8,8 @@ const PAGE_SIZE = 10;
 
 export default async function Page({ params }) {
   // ✅ await বাদ, parseInt ব্যবহার
-  const { id } = params;
-  const buildingId = parseInt(id);
-
+  const { id } = await params;
+  const buildingId = Number(id);
   if (isNaN(buildingId)) {
     return <div>Invalid Building ID</div>;
   }
