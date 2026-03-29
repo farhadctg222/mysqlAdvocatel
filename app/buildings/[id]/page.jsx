@@ -24,7 +24,7 @@ export default async function Page({ params }) {
       court_level, image, status, coordinator_phone
     FROM lawyers
     WHERE building_id = ?
-    ORDER BY id DESC
+    ORDER BY id ASC
     LIMIT ${PAGE_SIZE}
     `,
     [buildingId] // শুধু buildingId bind param
