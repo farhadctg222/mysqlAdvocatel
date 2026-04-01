@@ -6,17 +6,76 @@ import LoadMoreLawyers from "../../component/load-more";
 
 const PAGE_SIZE = 10;
 
-export default async function Page({ params }) {
-  // ✅ await বাদ, parseInt ব্যবহার
+/* ===================== SEO METADATA ===================== */
+export async function generateMetadata({ params }) {
   const { id } = await params;
   const buildingId = Number(id);
+
+  if (isNaN(buildingId)) {
+    return {
+      title: "Lawyers List",
+      description: "Building wise lawyer list in Bangladesh",
+    };
+  }
+
+  return {
+    title: `Building ${buildingId} Lawyers | Chattogram Advocate List`,
+    description: `Find lawyers and advocates in building ${buildingId}, Chattogram Bangladesh. Contact details, chamber info and more.`,
+
+    keywords: [
+      "Chattogram Lawyer",
+      "Lawyer in Chattogram",
+      "Advocate Bangladesh",
+      "Building Wise Lawyer",
+      "advocate in chittagong",
+      "bangladesh supreme court advocate",
+      "chattogram lawyer",
+      "ainjibi dowel bhaban",
+      "supreme court advocate","mohammad farhad uddin","co-ordinator of advocate list bd","farhad uddin chattogram","farhad uddin lawyer","farhad uddin advocate",
+      `Building ${buildingId} Lawyer`,
+      "Advocate List BD",
+    ],
+
+    alternates: {
+      canonical: `https://www.advocatelistbd.com/building/${buildingId}`,
+    },
+
+    openGraph: {
+      title: `Building ${buildingId} Lawyers`,
+      description: "Browse lawyers by building in Chattogram",
+      url: `https://www.advocatelistbd.com/building/${buildingId}`,
+      siteName: "AdvocateListBD",
+      images: [
+        {
+          url: "/og-lawyer.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Lawyer List",
+        },
+      ],
+      type: "website",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: `Building ${buildingId} Lawyers`,
+      description: "Find lawyers in Chattogram",
+      images: ["/og-lawyer.jpg"],
+    },
+  };
+}
+
+/* ===================== PAGE ===================== */
+export default async function Page({ params }) {
+  const { id } = await params;
+  const buildingId = Number(id);
+
   if (isNaN(buildingId)) {
     return <div>Invalid Building ID</div>;
   }
 
   const db = await connectDB();
 
-  // 🔹 first 10 lawyers (SSR)
   const [lawyers] = await db.execute(
     `
     SELECT
@@ -27,10 +86,9 @@ export default async function Page({ params }) {
     ORDER BY id ASC
     LIMIT ${PAGE_SIZE}
     `,
-    [buildingId] // শুধু buildingId bind param
+    [buildingId]
   );
 
-  // ✅ debug log (optional)
   console.log("Building ID:", buildingId);
   console.log("Lawyers fetched:", lawyers.length);
 
@@ -44,7 +102,6 @@ export default async function Page({ params }) {
         Lawyers List
       </h1>
 
-      {/* 🔹 Card Grid */}
       <LoadMoreLawyers
         initialData={lawyers}
         buildingId={buildingId}
