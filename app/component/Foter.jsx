@@ -44,7 +44,7 @@ const Foter = () => {
             </div>
             <div className="text-center mt-4">
                 <footer className="bg-gray-900 text-white p-4 text-center">
-      <p>© 2026-27 AdvocateLinker.com | সকল অধিকার সংরক্ষিত</p>
+      <p>© 2026-27 AdvocateListBD.com | সকল অধিকার সংরক্ষিত</p>
     </footer> </div>
         </footer>
             

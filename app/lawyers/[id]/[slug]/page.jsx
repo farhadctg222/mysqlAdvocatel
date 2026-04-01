@@ -63,8 +63,10 @@ export async function generateMetadata({ params }) {
 
   const name = safeText(data.name, "Advocate Profile");
   const designation = safeText(data.designation, "Advocate");
+  const email = safeText(data.email);
   const courtLevel = safeText(data.court_level);
   const chamberAddress = safeText(data.chamber_address);
+  const visitTime = safeText(data.visiting_time);
   const experienceYears = safeText(data.experience_years);
   const image = toAbsoluteImageUrl(data.image);
   const profileUrl = `https://www.advocatelistbd.com/lawyers/${id}/${slug}`;
@@ -74,7 +76,7 @@ export async function generateMetadata({ params }) {
       `${name} - ${designation}${
         courtLevel ? `, ${courtLevel}` : ""
       }. ${experienceYears ? `${experienceYears} years experience. ` : ""}${
-        chamberAddress ? `Chamber: ${chamberAddress}.` : ""
+        chamberAddress ? `Chamber: ${chamberAddress}. email: ${email}. visiting time: ${visitTime}` : ""
       }`,
     35
   );
@@ -90,6 +92,10 @@ export async function generateMetadata({ params }) {
       "Advocate",
       designation,
       courtLevel,
+      email,
+      chamberAddress,
+      description,
+      visitTime,
       safeText(data.chamber_name),
     ].filter(Boolean),
     alternates: {
@@ -115,6 +121,7 @@ export async function generateMetadata({ params }) {
       title: `${name} | ${designation}`,
       description,
       images: [image],
+      
     },
   };
 }

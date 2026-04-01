@@ -1,3 +1,39 @@
+export const metadata = {
+  title: "যোগাযোগ করুন | AdvocateListBD Bangladesh Lawyer Contact",
+  description:
+    "AdvocateListBD.com এর সাথে যোগাযোগ করুন। আইনজীবী তথ্য, সংশোধন, অভিযোগ বা সহযোগিতার জন্য ইমেইল, মোবাইল ও ঠিকানা ব্যবহার করুন।",
+
+  keywords: [
+    "Contact AdvocateListBD",
+    "Bangladesh Lawyer Contact",
+    "Chattogram Lawyer Contact",
+    "Advocate Contact Bangladesh",
+    "Lawyer Help Bangladesh",
+
+    // Bangla keywords 🔥
+    "যোগাযোগ আইনজীবী বাংলাদেশ",
+    "চট্টগ্রাম আইনজীবী যোগাযোগ",
+    "আইনজীবী সহায়তা",
+    "লয়ার কন্টাক্ট বাংলাদেশ",
+  ],
+
+  openGraph: {
+    title: "Contact AdvocateListBD",
+    description:
+      "Get in touch with AdvocateListBD for lawyer listings, updates and support.",
+    url: "https://advocatelistbd.com/contact",
+    siteName: "AdvocateListBD",
+    images: [
+      {
+        url: "/og-lawyer.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contact AdvocateListBD",
+      },
+    ],
+    type: "website",
+  },
+};
 export default function ContactUs() {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-100 to-indigo-100 py-12 px-6">
@@ -18,7 +54,7 @@ export default function ContactUs() {
           <p className="text-indigo-900 text-lg flex items-center gap-3">
             <span className="text-indigo-600 text-2xl">📧</span>
             <span>
-              <strong>ইমেইল:</strong> <a href="mailto:support@advocatelistbd.com" className="text-indigo-700 underline hover:text-indigo-900">support@advocatelistbd.com</a>
+              <strong>ইমেইল:</strong> <a href="mailto:farhadctg222@gmail.com" className="text-indigo-700 underline hover:text-indigo-900">farhadctg222@gmail.com</a>
             </span>
           </p>
           <p className="text-indigo-900 text-lg flex items-center gap-3">
