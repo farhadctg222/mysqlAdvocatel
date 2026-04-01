@@ -88,6 +88,8 @@ export async function generateMetadata({ params }) {
     description,
     keywords: [
       name,
+      "chattogram lawyer",
+      `${courtLevel ? courtLevel + " " : ""}lawyer in chattogram`,'advocate addvocate advocate  এডভোকেট আইনজীবী',
       "Lawyer in Bangladesh",
       "Advocate",
       designation,
